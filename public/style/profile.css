@@ -1,0 +1,133 @@
+/*the style for the Profile */
+
+/*---------div-----------*/
+.profile-container{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    margin: 0 auto 30px;
+    max-width: 935px;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    vertical-align: baseline;
+}
+.profile-header{
+    max-height: 300px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    align-items: stretch;
+    display: flex;
+    flex-shrink: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: baseline;
+    margin-bottom: 20px;
+
+    /* Fixing un clickable buttons issue (see modal class) */
+    z-index: 15;
+
+}
+.user-container{
+    float:left;
+    padding:5px;
+    margin: 30px;
+    border-top: 44px;
+    border-color: grey;
+    display: inline-block;
+}
+#user-pic{
+    display: inline-block;
+    width: 200px;
+    align-self: center;
+    align-items: stretch;
+}
+#user-info{
+    display: inline-block;
+    margin-left:40px ;
+}
+.pic{
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.info{
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-style: normal;
+}
+.group{
+    display: inline-block;
+    alignment: center;
+}
+
+.group-of-three {
+    display: flex;
+
+}
+.img-per-row {
+    display: inline-block;
+    width: 30%;
+}
+
+.user-bio{
+    font-size: 15px;
+    font-style: normal;
+    margin-bottom: 20px;
+    font-family: "Calibri Light", monospace ;
+}
+
+/*--------button--------*/
+.button{
+    background-color: royalblue;
+    border-color: royalblue;
+    color: white;
+    alignment: center;
+    display: inline-block;
+    font-max-size: 20px;
+}
+
+/*-----------image--------*/
+.round-img {
+    display: inline;
+    height: 100%;
+    width: auto;
+}
+
+.galleryimage{
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+    height: 150px;
+    width: 150px;
+}
+/*---------h-------*/
+.name{
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-family: "Calibri Light", monospace;
+    display: inline-block;
+
+}
+
+/*---------other-------*/
+div.modal .modal-header .modal-body .modal-content {
+    /* modal divs should be behind other divs until clicked on */
+    z-index: 5;
+    /* This alternative solution wouldn't work: display none */
+}
+div.modal {
+    /* overlay on the whole page */
+    display: block;
+}
+div.modal-content {
+    /* limit size of the "popup" box */
+    display: block;
+    margin: 100px auto;
+    width: 450px;
+}

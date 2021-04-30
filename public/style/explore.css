@@ -1,0 +1,27 @@
+/*-----------div----------*/
+.explore-container {
+    padding: 15px;
+}
+.posts {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+div.thumbnail {
+    width: 350px;
+    object-fit: cover; /* makes img match the width by cropping */
+    overflow-x: hidden;
+    margin: 10px; /* or padding*/
+    /*
+    background-color: white;
+    border: 1px solid #f0f0f0; */
+}
+
+/*----------image--------*/
+img.image-explore {
+    height: 350px; /* fix img height */
+    object-position: 50% 50%;
+    margin: 0 auto; /* center img in div */
+    display: block; /* center img in div */
+}
