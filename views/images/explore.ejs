@@ -1,0 +1,22 @@
+
+<link href="/style/explore.css" rel="stylesheet" type="text/css">
+
+
+<%- include('../partials/header') %>
+<main>
+    <div class="explore-container">
+        <h1>Explore</h1>
+        <div class="posts">
+            <% images.forEach((image) => { %>
+                <div class="thumbnail">
+                    <a href="/images/<%= image._id %>">
+                        <img class="image-explore" src="<%= image.url %>" alt="image post">
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+
+<%- include('../partials/footer') %>

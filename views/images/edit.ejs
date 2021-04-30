@@ -1,0 +1,49 @@
+
+
+<link href="/style/basic.css" rel="stylesheet" type="text/css">
+<link href="/style/custom.css" rel="stylesheet" type="text/css">
+<link href="/style/edit.css" rel="stylesheet" type="text/css">
+
+
+<%- include('../partials/header')  %>
+<main>
+     <div  align="center" >
+      <div class="col-sm-6 p-5">
+           <div class="card btn-card">
+                <div class="card-body">
+                    <form action="/images/<%=image._id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="clearfix">
+                        <div style="padding: 10px">
+                            <img id="file" src="<%=image.url %>" width="300px">
+
+                        </div>
+                        <div style="padding: 10px">
+                            <input type="file" name="image" id="file-ip-1" accept="image/*" onchange="showPreviewOne(event);">
+                        </div>
+                        <div style="padding: 10px; padding-bottom: 0px">
+                            <input class="card-input w-100" type="text" value="<%= image.caption%>" id="caption" name="caption" placeholder="Add Caption" >
+                        </div>
+
+                        <div class="float-container" style="padding-top: 25px">
+                            <div class="float-child">
+                                <div>
+                                    <button class=" btn btn-primary">Edit post</button>
+                                </div>
+                            </div>
+                            <div class="float-child">
+                                <div>
+                                    <input type="button" onclick="location.href ='/images';" class="btn btn-primary" value="Cancel">
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+           </div>
+      </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
+
+
+<script  src="/scripts/image.js" ></script>

@@ -1,0 +1,115 @@
+
+<link href="/style/styles.css" rel="stylesheet" type="text/css">
+<link href="/style/profile.css" rel="stylesheet" type="text/css">
+
+<%- include('partials/header') %>
+
+
+<main>
+    <!-- Listing of the posts from the user -->
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="user-container" id="user-pic">
+                <div class="pic">
+                    <img src="<%= user.pfp.url %>" width="150" alt="">
+                </div>
+            </div>
+            <div class="user-container" id="user-info">
+                <h1 class="name"><%= user.username %></h1>
+                <!-- follow/Unfollow buttons -->
+                <h2 class="name">
+                    <!-- Follow/Unfollow buttons -->
+                    <button class="btn btn-primary btn-lg" type="button"
+
+                    <% if (isBeingFollowed || duplicateUser) { %>
+                            style="display: none"
+                            <% } %>
+
+                            onclick="editFollow('<%= user._id %>', 'follow', '<%= user.username %>')">Follow
+                    </button>
+                    <button class="btn btn-primary btn-lg" type="button"
+                    <% if (!isBeingFollowed || duplicateUser) { %>
+                            style="display: none"
+                            <% } %>
+
+                            onclick="editFollow('<%= user._id %>', 'unfollow', '<%= user.username %>')">Unfollow
+                    </button>
+
+                </h2>
+                <div class="info">
+                    <div class="group">
+                        <button class="btn btn-primary" type="button"
+                                onclick="showList('<%= user._id %>', '<%= isBeingFollowed %>', '<%= duplicateUser %>', 'followers', '<%= user.username %>', undefined)">
+                            followers
+                        </button>
+                        <%= user.followers.length %>
+                    </div>
+                    <div class="group">
+                        <button class="btn btn-primary" type="button"
+                                onclick="showList('<%= user._id %>', '<%= isBeingFollowed %>', '<%= duplicateUser %>', 'follows', '<%= user.username %>')">
+                            followings
+                        </button>
+                        <%= user.follows.length %>
+                    </div>
+                </div>
+                <div class="user-bio">
+                    <h2>this is the bio. </h2>
+                </div>
+            </div>
+        </div>
+        <div class="posts">
+
+            <% let i = 0 %>
+            <% for (const image of user.images) { %>
+                <% if (i % 3 === 0) { %>
+                <div class="group-of-three">
+                    <% } %>
+                    <div class="img-per-row">
+                        <a href="/images/<%= image._id %>">
+                            <img class="galleryimage"
+                                 src="<%= image.url %>" alt="">
+                        </a>
+
+                    </div>
+                    <% if (i % 3 === 2) { %>
+                </div>
+                <% } %>
+                <% i++ %>
+            <% } %>
+
+        </div>
+
+    </div>
+
+    <div id="overlay"
+    <% if (overlay) { %>
+         class="active">
+        <% } %>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>List</p>
+                <form action="/<%= user.username %>" method="get">
+                    <button type="submit">&times;</button>
+                </form>
+            </div>
+            <div class="modal-body">
+                <!--<p>Haha, it's nothing...</p>-->
+                <% usersList.forEach(f => { %>
+                    <img src="<%= f.pfp.url %>" width="30" alt="pfp">
+                    <p><a href="/<%= f.username %>"><%= f.username %></a></p>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<script src="/scripts/profile.js" ></script>
+
+<%- include('./partials/footer') %>

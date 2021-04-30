@@ -1,0 +1,17 @@
+
+<link href="/style/basic.css" rel="stylesheet" type="text/css">
+<link href="/style/custom.css" rel="stylesheet" type="text/css">
+<link href="/style/error.css" rel="stylesheet" type="text/css">
+
+<%- include('partials/header') %>
+<main>
+    <div class="box">
+        <div class="body">
+            <h1><%= err.status %></h1>
+            <h2><%= err.message %></h2>
+        </div>
+    </div>
+
+
+</main>
+   <%- include('./partials/footer') %>
